@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-gpii-flow-manager
+
+- include: deploy.yml
+  tags:
+    - deploy

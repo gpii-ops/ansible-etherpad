@@ -1,0 +1,7 @@
+---
+# defaults file for ansible-gpii-flow-manager
+
+gpii_flow_manager_preferences_server_host_address: preferences.gpii.net
+gpii_flow_manager_environment: cloudBased.production
+gpii_flow_manager_rbmm_host_address: rbmm.gpii.net
+gpii_flow_manager_stmm_host_address: stmm.gpii.net
