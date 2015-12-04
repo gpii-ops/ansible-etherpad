@@ -15,9 +15,8 @@ nodejs_app_commands:
 nodejs_app_start_script: gpii.js
 nodejs_app_env_vars:
   - NODE_ENV="{{ gpii_flow_manager_environment }}"
-# TODO: figure out how to test Flow Manager
-# nodejs_app_host_address: 127.0.0.1
-# nodejs_app_tcp_port: 8082
-# nodejs_app_test_http_endpoint:
-# nodejs_app_test_http_status_code:
-# nodejs_app_test_string: 
+nodejs_app_host_address: 127.0.0.1
+nodejs_app_tcp_port: 8081
+nodejs_app_test_http_endpoint: http://192.168.99.100:8081/carla/settings/%7B%22OS%22:%7B%22id%22:%22linux%22%7D,%22solutions%22:[%7B%22id%22:%22org.gnome.desktop.a11y.magnifier%22%7D]%7D
+nodejs_app_test_http_status_code: 200
+nodejs_app_test_string: org.gnome.desktop.a11y.magnifier
