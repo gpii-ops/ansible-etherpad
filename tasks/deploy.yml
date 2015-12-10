@@ -6,17 +6,3 @@
     regexp: 'http://preferences.gpii.net'
     replace: 'http://{{ gpii_flow_manager_preferences_server_host_address }}'
   notify: Restart the application systemd unit
-
-- name: Update the cloudBased.production config file's STMM address
-  replace:
-    dest: "{{ nodejs_app_install_dir }}/gpii/configs/cloudBased.production.json"
-    regexp: 'http://stmm.gpii.net'
-    replace: 'http://{{ gpii_flow_manager_rbmm_host_address }}'
-  notify: Restart the application systemd unit
-
-- name: Update the cloudBased.production config file's RBMM address
-  replace:
-    dest: "{{ nodejs_app_install_dir }}/gpii/configs/cloudBased.production.json"
-    regexp: 'http://rbmm.gpii.net'
-    replace: 'http://{{ gpii_flow_manager_stmm_host_address }}'
-  notify: Restart the application systemd unit
