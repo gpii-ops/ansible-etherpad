@@ -9,7 +9,7 @@ Most of the work to install the Flow Manager itself is done through passing appr
 
 - the Flow Manager `cloudBased.development.all.local.json` config is updated appropriately to the relevant Preferences Server host
 
-As of the production configuration at time of writing, the cloud-based Flow Manager does not require URLs for the matchmakers, and they are thus not part of the role.
+At time of writing, the production configuration of cloud-based Flow Manager does not require URLs for the matchmakers, and they are thus not part of the role.
 
 Requirements
 ------------
