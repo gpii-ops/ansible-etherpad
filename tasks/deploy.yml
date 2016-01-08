@@ -13,5 +13,3 @@
     regexp: 'http://localhost:8081/preferences'
     replace: 'http://{{ gpii_flow_manager_preferences_server_host_address }}/preferences'
   notify: Restart the application systemd unit
-
-  # gpii/node_modules/flowManager/configs/cloudBased.development.all.local.json
