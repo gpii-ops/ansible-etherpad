@@ -1,37 +1,48 @@
-# ansible-flow-manager
+Flow Manager
+============
 
-A brief description of the role goes here.
+Installs and configures a GPII Flow Manager instance in cloud-based mode, using the nodejs role.
+
+Most of the work to install the Flow Manager itself is done through passing appropriate defaults to the `ansible-nodejs` role; this role really only does Flow Manager-specific things, as opposed to general "install and configure a nodejs application" tasks that the other role can handle. Specifically:
+
+- the universal `cloudBased.production` config is updated appropriately to the relevant Preferences Server host
+
+- the Flow Manager `cloudBased.development.all.local.json` config is updated appropriately to the relevant Preferences Server host
+
+As of the production configuration at time of writing, the cloud-based Flow Manager does not require URLs for the matchmakers, and they are thus not part of the role.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+A running preferences server is expected;
+
+A running couchdb server is expected; the `test` tag of the role will test for this and for the presence of an expected default preference set.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+`flow_manager_preferences_server_host_address`: preferences server host address (default: "preferences.gpii.net")
+`flow_manager_environment`: GPII environment; this shouldn't be changed under normal circumstances for this role (Default: "cloudBased.production")
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- https://github.com/idi-ops/ansible-facts
+- https://github.com/idi-ops/ansible-nodejs
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+    - hosts: flowmanager
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: ansible-flow-manager, preferences_server_couchdb_host_address: preferences.gpii.net }
 
 License
 -------
 
-BSD
+MIT.
 
 Author Information
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
