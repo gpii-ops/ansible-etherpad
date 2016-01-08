@@ -4,12 +4,12 @@
   replace:
     dest: "{{ nodejs_app_install_dir }}/gpii/configs/cloudBased.production.json"
     regexp: 'http://preferences.gpii.net'
-    replace: 'http://{{ gpii_flow_manager_preferences_server_host_address }}'
+    replace: 'http://{{ flow_manager_preferences_server_host_address }}'
   notify: Restart the application systemd unit
 
 - name: Update flowManager/configs/cloudBased.development.all.local.json config file's Preference Server address
   replace:
     dest: "{{ nodejs_app_install_dir }}/gpii/node_modules/flowManager/configs/cloudBased.development.all.local.json"
     regexp: 'http://localhost:8081/preferences'
-    replace: 'http://{{ gpii_flow_manager_preferences_server_host_address }}/preferences'
+    replace: 'http://{{ flow_manager_preferences_server_host_address }}/preferences'
   notify: Restart the application systemd unit

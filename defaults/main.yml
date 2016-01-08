@@ -1,8 +1,8 @@
 ---
 # defaults file for ansible-gpii-flow-manager
 
-gpii_flow_manager_preferences_server_host_address: preferences.gpii.net
-gpii_flow_manager_environment: cloudBased.production
+flow_manager_preferences_server_host_address: preferences.gpii.net
+flow_manager_environment: cloudBased.production
 
 # nodejs application configuration for the ansible-nodejs role
 
@@ -17,7 +17,7 @@ nodejs_app_commands:
   - grunt dedupe-infusion
 nodejs_app_start_script: gpii.js
 nodejs_app_env_vars:
-  - NODE_ENV="{{ gpii_flow_manager_environment }}"
+  - NODE_ENV="{{ flow_manager_environment }}"
 nodejs_app_host_address: 127.0.0.1
 nodejs_app_tcp_port: 8081
 nodejs_app_test_http_endpoint: http://192.168.99.100:8081/carla/settings/%7B%22OS%22:%7B%22id%22:%22linux%22%7D,%22solutions%22:[%7B%22id%22:%22org.gnome.desktop.a11y.magnifier%22%7D]%7D
