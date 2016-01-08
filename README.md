@@ -14,9 +14,7 @@ As of the production configuration at time of writing, the cloud-based Flow Mana
 Requirements
 ------------
 
-A running preferences server is expected;
-
-A running couchdb server is expected; the `test` tag of the role will test for this and for the presence of an expected default preference set.
+A running preferences server is expected and must be configured in the role variables (see below)
 
 Role Variables
 --------------
