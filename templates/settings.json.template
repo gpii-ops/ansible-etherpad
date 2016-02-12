@@ -127,19 +127,23 @@
 
   /* Users for basic authentication. is_admin = true gives access to /admin.
      If you do not uncomment this, /admin will not be available! */
-  /*
+{% if etherpad_admin_password %}
   "users": {
     "admin": {
-      "password": "changeme1",
+      "password": "{{ etherpad_admin_password }}",
       "is_admin": true
-    },
-    "user": {
-      "password": "changeme1",
+    }{% for key,value in etherpad_admin_users.iteritems() %},
+    "{{key}}": {
+      "password": "{{value}}",
+      "is_admin": true
+    }{% endfor %}{% for key,value in etherpad_users.iteritems() %},
+    "{{key}}": {
+      "password": "{{value}}",
       "is_admin": false
-    }
-  },
-  */
+    }{% endfor %}
 
+  },
+{% endif %}
   // restrict socket.io transport methods
   "socketTransportProtocols" : ["xhr-polling", "jsonp-polling", "htmlfile"],
 
