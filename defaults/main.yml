@@ -1,6 +1,6 @@
 ---
 
-etherpad_title: "IDI Etherpad"
+etherpad_title: "Etherpad"
 etherpad_dbtype: "sqlite"
 etherpad_npm_packages:
   - sqlite3
