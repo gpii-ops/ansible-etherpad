@@ -1,15 +1,16 @@
 ---
 
-- name: Update the cloudBased.production config file's Preference Server address
-  replace:
-    dest: "{{ nodejs_app_install_dir }}/gpii/configs/cloudBased.production.json"
-    regexp: 'http://preferences.gpii.net'
-    replace: 'http://{{ flow_manager_preferences_server_host_address }}'
+- name: Install Etherpad node modules locally
+  npm:
+    global: no
+    path: "{{ nodejs_app_install_dir }}"
+    name: "{{ item }}"
+  with_items:
+    - "{{ etherpad_npm_packages }}"
+
+- name: Set Etherpad settings file
+  template:
+    dest: "{{ nodejs_app_install_dir }}/settings.json"
+    src: settings.json.template
   notify: Restart the application systemd unit
 
-- name: Update flowManager/configs/cloudBased.development.all.local.json config file's Preference Server address
-  replace:
-    dest: "{{ nodejs_app_install_dir }}/gpii/node_modules/flowManager/configs/cloudBased.development.all.local.json"
-    regexp: 'http://localhost:8081/preferences'
-    replace: 'http://{{ flow_manager_preferences_server_host_address }}/preferences'
-  notify: Restart the application systemd unit

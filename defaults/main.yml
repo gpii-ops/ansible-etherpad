@@ -1,25 +1,22 @@
 ---
-# defaults file for ansible-gpii-flow-manager
 
-flow_manager_preferences_server_host_address: preferences.gpii.net
-flow_manager_environment: cloudBased.production
+etherpad_title: "IDI Etherpad"
+etherpad_dbtype: "sqlite"
+etherpad_npm_packages:
+  - sqlite3
 
 # nodejs application configuration for the ansible-nodejs role
 
-nodejs_app_name: universal
+nodejs_app_name: etherpad
 nodejs_app_install_dir: /opt/{{ nodejs_app_name }}
-nodejs_app_git_repo: https://github.com/gpii/universal.git
-nodejs_app_git_branch: master
-nodejs_app_npm_packages:
-  - grunt-cli
+nodejs_app_git_repo: https://github.com/ether/etherpad-lite.git
+nodejs_app_git_branch: 1.5.7
 nodejs_app_commands:
-  - npm install
-  - grunt dedupe-infusion
-nodejs_app_start_script: gpii.js
-nodejs_app_env_vars:
-  - NODE_ENV="{{ flow_manager_environment }}"
+  - "bin/installDeps.sh"
+nodejs_app_start_script: "node_modules/ep_etherpad-lite/node/server.js"
 nodejs_app_host_address: 127.0.0.1
-nodejs_app_tcp_port: 8081
-nodejs_app_test_http_endpoint: /carla/settings/%7B%22OS%22:%7B%22id%22:%22linux%22%7D,%22solutions%22:[%7B%22id%22:%22org.gnome.desktop.a11y.magnifier%22%7D]%7D
+nodejs_app_tcp_port: 9001
+nodejs_app_test_http_endpoint: /
 nodejs_app_test_http_status_code: 200
-nodejs_app_test_string: org.gnome.desktop.a11y.magnifier
+nodejs_app_test_string: "<button type=\"submit\">OK</button>"
+
