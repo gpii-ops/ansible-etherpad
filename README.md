@@ -16,11 +16,11 @@ Requirements
 Role Variables
 --------------
 
-`etherpad_title`: Name of the Etherpad instance (Default: "Etherpad")
-`etherpad_npm_packages`: List of npm packages to install locally, the plugins may be listed here.
-`etherpad_admin_password`: Admin password, if is set it allows the user authentication. If it's empty the two following variables will be ignored.
-`etherpad_admin_users`: Dictionary with username: password to be admins {admin1: admin1pw, admin2: admin2pw}
-`etherpad_users`: Dictionary with username: paswword to be plain users {user1: user1pw, user2: user2pw, user3: user3pw}
+- `etherpad_title`: Name of the Etherpad instance (Default: "Etherpad")
+- `etherpad_npm_packages`: List of npm packages to install locally, the plugins may be listed here.
+- `etherpad_admin_password`: Admin password, if is set it allows the user authentication. If it's empty the two following variables will be ignored.
+- `etherpad_admin_users`: Dictionary with username: password to be admins {admin1: admin1pw, admin2: admin2pw}
+- `etherpad_users`: Dictionary with username: paswword to be plain users {user1: user1pw, user2: user2pw, user3: user3pw}
 
 Dependencies
 ------------
