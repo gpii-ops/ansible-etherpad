@@ -4,6 +4,12 @@ etherpad_title: "Etherpad"
 etherpad_dbtype: "sqlite"
 etherpad_npm_packages:
   - sqlite3
+  - ep_mypads
+
+etherpad_users: {}
+etherpad_admin_users: {}
+etherpad_requireAuthentication: false
+etherpad_requireAuthorization: false
 
 # nodejs application configuration for the ansible-nodejs role
 
