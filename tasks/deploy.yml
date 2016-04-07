@@ -14,3 +14,8 @@
     src: settings.json.template
   notify: Restart the application systemd unit
 
+- name: Remove lock file if exists
+  file:
+    path: "{{ nodejs_app_install_dir  }}/src/.ep_initialized"
+    state: absent
+
