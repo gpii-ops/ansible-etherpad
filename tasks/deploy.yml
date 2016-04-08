@@ -18,4 +18,5 @@
   file:
     path: "{{ nodejs_app_install_dir  }}/src/.ep_initialized"
     state: absent
+  when: not is_docker
 
